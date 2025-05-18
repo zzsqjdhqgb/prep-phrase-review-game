@@ -181,3 +181,20 @@
         margin: 10px 5px;
     }
 }
+
+.original-link {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.original-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.original-link a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
