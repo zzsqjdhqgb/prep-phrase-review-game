@@ -14,7 +14,7 @@
 
 #question-area {
     margin: 20px 0;
-    padding: 15px;  // 减少padding
+    padding: 15px;  /* 减少padding */
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     background-color: #fff;
@@ -32,8 +32,8 @@
 #sentence {
     font-size: 20px;
     line-height: 1.6;
-    margin-bottom: 10px;  // 减少margin-bottom
-    min-height: 40px;     // 减少min-height
+    margin-bottom: 10px;  /* 减少margin-bottom */
+    min-height: 40px;     /* 减少min-height */
     position: relative;
     color: #2c3e50;
 }
@@ -62,8 +62,8 @@
 #phrase {
     font-size: 18px;
     color: #27ae60;
-    margin-top: 10px;  // 减少margin-top
-    padding: 8px 0;    // 减少padding并只保留上下padding
+    margin-top: 10px;  /* 减少margin-top */
+    padding: 8px 0;    /* 减少padding并只保留上下padding */
     border-top: 1px dashed #e0e0e0;
     opacity: 0;
     transform: translateY(10px);
