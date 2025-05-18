@@ -1,0 +1,32 @@
+[
+    {
+        "sentence": "We should give {{blank}} to environmental protection",
+        "answer": "priority",
+        "options": ["priority", "issue", "advantage", "attention"],
+        "full": "give priority to"
+    },
+    {
+        "sentence": "She takes {{blank}} with his unfair comments",
+        "answer": "issue",
+        "options": ["priority", "issue", "care", "part"],
+        "full": "take issue with"
+    },
+    {
+        "sentence": "This plan has an {{blank}} over others",
+        "answer": "advantage",
+        "options": ["advantage", "effect", "interest", "exception"],
+        "full": "have an advantage over"
+    },
+    {
+        "sentence": "Pay {{blank}} to the teacher's instructions",
+        "answer": "attention",
+        "options": ["attention", "respect", "money", "visit"],
+        "full": "pay attention to"
+    },
+    {
+        "sentence": "He takes {{blank}} of his younger brother",
+        "answer": "care",
+        "options": ["care", "control", "notice", "part"],
+        "full": "take care of"
+    }
+]

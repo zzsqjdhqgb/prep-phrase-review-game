@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>介词词组复习游戏</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .game-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .sentence {
+            font-size: 1.5em;
+            margin: 30px 0;
+            min-height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-bottom: 2px dashed #3498db;
+        }
+        .word-blank {
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            margin: 0 5px;
+            border-bottom: 2px solid #3498db;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .word-option {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: grab;
+            user-select: none;
+        }
+        .word-option.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 30px 0;
+            min-height: 100px;
+        }
+        .feedback {
+            text-align: center;
+            font-size: 1.2em;
+            min-height: 30px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .correct {
+            color: #27ae60;
+        }
+        .incorrect {
+            color: #e74c3c;
+        }
+        .next-btn {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 25px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .next-btn:hover {
+            background-color: #27ae60;
+        }
+        .next-btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+        .score {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>介词词组复习游戏</h1>
+    <div class="game-container">
+        <div class="score">得分: <span id="score">0</span></div>
+        <div class="sentence" id="sentence"></div>
+        <div class="feedback" id="feedback"></div>
+        <div class="options-container" id="options"></div>
+        <button class="next-btn" id="nextBtn" disabled>下一题</button>
+    </div>
+
+    <script>
+        // 介词词组题库
+        const phrases = [
+            { sentence: "We should give ______ to environmental protection", answer: "priority", options: ["priority", "issue", "advantage", "attention"], full: "give priority to" },
+            { sentence: "She takes ______ with his unfair comments", answer: "issue", options: ["priority", "issue", "care", "part"], full: "take issue with" },
+            { sentence: "This plan has an ______ over others", answer: "advantage", options: ["advantage", "effect", "interest", "exception"], full: "have an advantage over" },
+            { sentence: "Pay ______ to the teacher's instructions", answer: "attention", options: ["attention", "respect", "money", "visit"], full: "pay attention to" },
+            { sentence: "He takes ______ of his younger brother", answer: "care", options: ["care", "control", "notice", "part"], full: "take care of" }
+        ];
+
+        let currentPhrase = 0;
+        let score = 0;
+        let draggedWord = null;
+        let blankPositions = [];
+
+        // 初始化游戏
+        function initGame() {
+            document.getElementById('score').textContent = score;
+            loadPhrase(currentPhrase);
+        }
+
+        // 统一拖动逻辑
+        let draggedElement = null;
+        let offsetX = 0;
+        let offsetY = 0;
+
+        function onPointerDown(e) {
+            if (e.target.classList.contains('word-option')) {
+                draggedElement = e.target;
+                const rect = draggedElement.getBoundingClientRect();
+                offsetX = e.clientX - rect.left;
+                offsetY = e.clientY - rect.top;
+
+                draggedElement.style.position = 'absolute';
+                draggedElement.style.zIndex = '1000';
+                draggedElement.style.transition = 'none';
+
+                document.body.appendChild(draggedElement);
+                moveAt(e.pageX, e.pageY);
+
+                document.addEventListener('pointermove', onPointerMove);
+                document.addEventListener('pointerup', onPointerUp);
+            }
+        }
+
+        function moveAt(pageX, pageY) {
+            draggedElement.style.left = `${pageX - offsetX}px`;
+            draggedElement.style.top = `${pageY - offsetY}px`;
+        }
+
+        function onPointerMove(e) {
+            if (draggedElement) {
+                moveAt(e.pageX, e.pageY);
+            }
+        }
+
+        function onPointerUp(e) {
+            if (draggedElement) {
+                const elementBelow = document.elementFromPoint(e.clientX, e.clientY);
+
+                if (elementBelow && elementBelow.classList.contains('word-blank')) {
+                    const word = draggedElement.dataset.word;
+                    const blank = elementBelow;
+
+                    // 检查答案
+                    if (word === blank.dataset.answer) {
+                        blank.textContent = word;
+                        blank.style.borderBottom = 'none';
+                        blank.style.color = '#27ae60';
+
+                        // 移除已使用的选项
+                        draggedElement.remove();
+
+                        // 显示反馈
+                        const feedbackEl = document.getElementById('feedback');
+                        feedbackEl.textContent = `正确! 完整词组: ${phrases[currentPhrase].full}`;
+                        feedbackEl.className = 'feedback correct';
+
+                        // 启用下一题按钮
+                        document.getElementById('nextBtn').disabled = false;
+
+                        // 加分
+                        score++;
+                        document.getElementById('score').textContent = score;
+                    } else {
+                        const feedbackEl = document.getElementById('feedback');
+                        feedbackEl.textContent = '不正确，请再试一次';
+                        feedbackEl.className = 'feedback incorrect';
+                    }
+                }
+
+                // 重置拖动元素样式
+                draggedElement.style.position = '';
+                draggedElement.style.zIndex = '';
+                draggedElement.style.left = '';
+                draggedElement.style.top = '';
+                draggedElement.style.transition = '';
+
+                draggedElement = null;
+                document.removeEventListener('pointermove', onPointerMove);
+                document.removeEventListener('pointerup', onPointerUp);
+            }
+        }
+
+        // 加载题目
+        function loadPhrase(index) {
+            const phrase = phrases[index];
+            const sentenceEl = document.getElementById('sentence');
+            const optionsEl = document.getElementById('options');
+            const feedbackEl = document.getElementById('feedback');
+            const nextBtn = document.getElementById('nextBtn');
+
+            // 清空上一题
+            sentenceEl.innerHTML = '';
+            optionsEl.innerHTML = '';
+            feedbackEl.innerHTML = '';
+            feedbackEl.className = 'feedback';
+            nextBtn.disabled = true;
+            blankPositions = [];
+
+            // 处理句子，找到填空位置
+            const parts = phrase.sentence.split('______');
+            sentenceEl.appendChild(document.createTextNode(parts[0]));
+            
+            // 创建填空
+            const blank = document.createElement('span');
+            blank.className = 'word-blank';
+            blank.dataset.answer = phrase.answer;
+            blank.addEventListener('dragover', dragOver);
+            blank.addEventListener('drop', drop);
+            blank.addEventListener('dragenter', dragEnter);
+            blank.addEventListener('dragleave', dragLeave);
+            // 添加触摸事件
+            blank.addEventListener('touchend', touchDrop);
+            sentenceEl.appendChild(blank);
+            
+            // 记录填空位置
+            const blankRect = blank.getBoundingClientRect();
+            blankPositions.push({
+                left: blankRect.left,
+                top: blankRect.top,
+                width: blankRect.width,
+                height: blankRect.height
+            });
+
+            sentenceEl.appendChild(document.createTextNode(parts[1]));
+
+            // 创建可拖动选项
+            const shuffledOptions = [...phrase.options].sort(() => Math.random() - 0.5);
+            shuffledOptions.forEach(word => {
+                const option = document.createElement('div');
+                option.className = 'word-option';
+                option.textContent = word;
+                option.dataset.word = word;
+                option.addEventListener('pointerdown', onPointerDown);
+                optionsEl.appendChild(option);
+            });
+        }
+
+        // 添加拖动动画
+        function dragStart(e) {
+            draggedWord = e.target;
+            e.target.classList.add('dragging');
+            e.dataTransfer.setData('text/plain', e.target.dataset.word);
+            e.dataTransfer.effectAllowed = 'move';
+
+            // 设置拖动动画
+            requestAnimationFrame(() => {
+                e.target.style.transition = 'transform 0.2s ease';
+                e.target.style.transform = 'scale(1.2)';
+            });
+        }
+
+        function dragEnd(e) {
+            e.target.classList.remove('dragging');
+
+            // 恢复动画
+            e.target.style.transition = '';
+            e.target.style.transform = '';
+        }
+
+        // 拖动经过填空区
+        function dragOver(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+        }
+
+        // 拖动进入填空区
+        function dragEnter(e) {
+            e.preventDefault();
+            e.target.style.backgroundColor = '#ecf0f1';
+        }
+
+        // 拖动离开填空区
+        function dragLeave(e) {
+            e.preventDefault();
+            e.target.style.backgroundColor = '';
+        }
+
+        // 放置单词
+        function drop(e) {
+            e.preventDefault();
+            e.target.style.backgroundColor = '';
+            
+            const word = e.dataTransfer.getData('text/plain');
+            const blank = e.target;
+            
+            // 检查答案
+            if (word === blank.dataset.answer) {
+                blank.textContent = word;
+                blank.style.borderBottom = 'none';
+                blank.style.color = '#27ae60';
+                
+                // 移除已使用的选项
+                draggedWord.style.visibility = 'hidden';
+                
+                // 显示反馈
+                const feedbackEl = document.getElementById('feedback');
+                feedbackEl.textContent = `正确! 完整词组: ${phrases[currentPhrase].full}`;
+                feedbackEl.className = 'feedback correct';
+                
+                // 启用下一题按钮
+                document.getElementById('nextBtn').disabled = false;
+                
+                // 加分
+                score++;
+                document.getElementById('score').textContent = score;
+            } else {
+                const feedbackEl = document.getElementById('feedback');
+                feedbackEl.textContent = '不正确，请再试一次';
+                feedbackEl.className = 'feedback incorrect';
+            }
+        }
+
+        // 修改触摸事件以支持动画
+        function touchStart(e) {
+            draggedWord = e.target;
+            e.target.classList.add('dragging');
+
+            // 设置触摸动画
+            requestAnimationFrame(() => {
+                e.target.style.transition = 'transform 0.2s ease';
+                e.target.style.transform = 'scale(1.2)';
+            });
+        }
+
+        // 在触摸结束时重置卡片位置样式
+        function touchEnd(e) {
+            const target = e.target;
+            target.classList.remove('dragging');
+
+            // 恢复动画和位置样式
+            target.style.transition = '';
+            target.style.transform = '';
+            target.style.position = '';
+            target.style.zIndex = '';
+            target.style.left = '';
+            target.style.top = '';
+        }
+
+        // 修改触摸移动事件以实现卡片跟随手指
+        function touchMove(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const target = draggedWord;
+
+            if (target) {
+                target.style.position = 'absolute';
+                target.style.zIndex = '1000';
+                target.style.left = `${touch.clientX - target.offsetWidth / 2}px`;
+                target.style.top = `${touch.clientY - target.offsetHeight / 2}px`;
+            }
+        }
+
+        function touchDrop(e) {
+            e.preventDefault();
+            const touch = e.changedTouches[0];
+            const element = document.elementFromPoint(touch.clientX, touch.clientY);
+
+            if (element && element.classList.contains('word-blank')) {
+                const word = draggedWord.dataset.word;
+                const blank = element;
+
+                // 检查答案
+                if (word === blank.dataset.answer) {
+                    blank.textContent = word;
+                    blank.style.borderBottom = 'none';
+                    blank.style.color = '#27ae60';
+
+                    // 移除已使用的选项
+                    draggedWord.style.visibility = 'hidden';
+
+                    // 显示反馈
+                    const feedbackEl = document.getElementById('feedback');
+                    feedbackEl.textContent = `正确! 完整词组: ${phrases[currentPhrase].full}`;
+                    feedbackEl.className = 'feedback correct';
+
+                    // 启用下一题按钮
+                    document.getElementById('nextBtn').disabled = false;
+
+                    // 加分
+                    score++;
+                    document.getElementById('score').textContent = score;
+                } else {
+                    const feedbackEl = document.getElementById('feedback');
+                    feedbackEl.textContent = '不正确，请再试一次';
+                    feedbackEl.className = 'feedback incorrect';
+                }
+            }
+        }
+
+        // 下一题
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            currentPhrase = (currentPhrase + 1) % phrases.length;
+            loadPhrase(currentPhrase);
+        });
+
+        // 初始化游戏
+        window.addEventListener('DOMContentLoaded', initGame);
+    </script>
+</body>
+</html>

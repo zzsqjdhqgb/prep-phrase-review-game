@@ -1,0 +1,183 @@
+#game-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#score {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+#question-area {
+    margin: 20px 0;
+    padding: 15px;  // 减少padding
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+#question-area.drop-active {
+    border-color: #3498db;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+    transform: scale(1.01);
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+#sentence {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 10px;  // 减少margin-bottom
+    min-height: 40px;     // 减少min-height
+    position: relative;
+    color: #2c3e50;
+}
+
+.word-blank {
+    display: inline-block;
+    min-width: 60px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+    margin: 0 5px;
+    border: 2px solid #3498db;
+    border-radius: 4px;
+    vertical-align: middle;
+    background-color: #fff;
+    text-align: center;
+}
+
+.word-blank.filled {
+    border-color: #27ae60;
+    color: #27ae60;
+    font-weight: bold;
+    animation: fillIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+#phrase {
+    font-size: 18px;
+    color: #27ae60;
+    margin-top: 10px;  // 减少margin-top
+    padding: 8px 0;    // 减少padding并只保留上下padding
+    border-top: 1px dashed #e0e0e0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#phrase.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hidden {
+    display: none;
+}
+
+#options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.option {
+    padding: 8px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    user-select: none;
+    touch-action: none;
+    transform: translateY(0);
+    transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.option:hover {
+    background-color: #2980b9;
+}
+
+.option.dragging {
+    opacity: 0.8;
+    background-color: #2980b9;
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+#feedback {
+    margin: 20px 0;
+    font-size: 18px;
+    min-height: 24px;
+    font-weight: bold;
+}
+
+#next {
+    padding: 10px 25px;
+    font-size: 16px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#next:hover {
+    background-color: #27ae60;
+}
+
+#next:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+@keyframes fillIn {
+    0% {
+        transform: scale(1);
+        background-color: transparent;
+    }
+    50% {
+        transform: scale(1.1);
+        background-color: rgba(39, 174, 96, 0.1);
+    }
+    100% {
+        transform: scale(1);
+        background-color: rgba(39, 174, 96, 0.05);
+    }
+}
+
+/* 触摸屏支持 */
+@media (hover: none) {
+    .option {
+        padding: 12px 25px;
+        margin: 8px;
+        font-size: 16px;
+    }
+    
+    .option.dragging {
+        position: absolute;
+        z-index: 1000;
+        pointer-events: none;
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    #next {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+    
+    .word-blank {
+        min-width: 100px;
+        height: 40px;
+        line-height: 40px;
+        margin: 10px 5px;
+    }
+}
