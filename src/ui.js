@@ -11,10 +11,15 @@ class UI {
       completionArea: document.querySelector('#completion-area')
     };
     this.currentBlank = null;
+    this.game = null;
+    
+    // 初始化分数显示格式
+    this.elements.score.textContent = '得分：0 / 0';
   }
 
   updateScore(score) {
-    this.elements.score.textContent = `得分：${score}`;
+    const totalQuestions = this.game?.phrases?.length || 0;
+    this.elements.score.textContent = `得分：${score} / ${totalQuestions}`;
   }
 
   showPhrase(phrase) {
@@ -141,6 +146,7 @@ class UI {
   }
 
   bindEvents(game) {
+    this.game = game;  // 保存对 Game 实例的引用
     this.elements.nextButton.addEventListener('click', () => game.nextPhrase());
   }
 }

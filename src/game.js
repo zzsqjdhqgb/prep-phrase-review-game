@@ -88,9 +88,9 @@ class Game {
       scored: false
     }));
 
-    this.ui.updateScore(this.score);
+    this.ui.bindEvents(this);  // 先绑定事件，这样UI就能获取到总题数
+    this.ui.updateScore(this.score);  // 然后更新分数显示
     this.ui.showPhrase(this.phrases[this.currentIndex]);
-    this.ui.bindEvents(this);
   }
 
   checkAnswer(answer) {
