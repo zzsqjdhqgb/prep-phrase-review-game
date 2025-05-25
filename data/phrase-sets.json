@@ -5,6 +5,18 @@
       "description": "使用完整题库体验所有功能",
       "details": "包含答题反馈、错题统计等功能展示",
       "path": "data/example.json"
+    },
+    {
+      "name": "B3U3 - deepseek",
+      "description": "B3U3 大默写",
+      "details": "由 deepseek 生成",
+      "path": "data/B3U3-deepseek.json"
+    },
+    {
+      "name": "B3U3 - chatgpt",
+      "description": "B3U3 大默写",
+      "details": "由 chatgpt 生成",
+      "path": "data/B3U3-chatgpt.json"
     }
   ]
 }

@@ -1,0 +1,498 @@
+[
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "put on weight",
+        "options": [
+            "put on weight",
+            "gain weight",
+            "put on weights"
+        ],
+        "full": "put on weight"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "grow fat",
+        "options": [
+            "grow fat",
+            "fatten up",
+            "grow fats"
+        ],
+        "full": "grow fat"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "daily routines",
+        "options": [
+            "daily routines",
+            "daily routine",
+            "day routines"
+        ],
+        "full": "daily routines"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "weigh 60 kg",
+        "options": [
+            "weigh 60 kg",
+            "weigh 60 kgs",
+            "weigh 60 kilos"
+        ],
+        "full": "weigh 60 kg"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "a sign of attractiveness in women",
+        "options": [
+            "a sign of attractiveness in women",
+            "a sign of attractiveness for women",
+            "a sign of attractiveness in womens"
+        ],
+        "full": "a sign of attractiveness in women"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "put off weight",
+        "options": [
+            "put off weight",
+            "lose weight",
+            "put off weights"
+        ],
+        "full": "put off weight"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "gain weight",
+        "options": [
+            "gain weight",
+            "put on weight",
+            "gain weights"
+        ],
+        "full": "gain weight"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "grow thin",
+        "options": [
+            "grow thin",
+            "grow skinny",
+            "grow thins"
+        ],
+        "full": "grow thin"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "lose weight",
+        "options": [
+            "lose weight",
+            "lose weights",
+            "loose weight"
+        ],
+        "full": "lose weight"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "keep fit",
+        "options": [
+            "keep fit",
+            "stay fit",
+            "keep fats"
+        ],
+        "full": "keep fit"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "go jogging",
+        "options": [
+            "go jogging",
+            "go jog",
+            "go joggings"
+        ],
+        "full": "go jogging"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "eat healthily",
+        "options": [
+            "eat healthily",
+            "eat healthy",
+            "eat healthys"
+        ],
+        "full": "eat healthily"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "drink plenty of water",
+        "options": [
+            "drink plenty of water",
+            "drink a lot of water",
+            "drink plentys of water"
+        ],
+        "full": "drink plenty of water"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "go swimming",
+        "options": [
+            "go swimming",
+            "go swim",
+            "go swimmings"
+        ],
+        "full": "go swimming"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "work out",
+        "options": [
+            "work out",
+            "work up",
+            "work outsourcing"
+        ],
+        "full": "work out"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "keep a balance diet",
+        "options": [
+            "keep a balance diet",
+            "have a balanced diet",
+            "keep a balanced diet"
+        ],
+        "full": "keep a balance diet"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "get in shape",
+        "options": [
+            "get in shape",
+            "get into shape",
+            "get in shapes"
+        ],
+        "full": "get in shape"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "burn calories",
+        "options": [
+            "burn calories",
+            "burn calorie",
+            "burned calories"
+        ],
+        "full": "burn calories"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "take vitamins",
+        "options": [
+            "take vitamins",
+            "take vitamin",
+            "take vitaminses"
+        ],
+        "full": "take vitamins"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "go on a diet",
+        "options": [
+            "go on a diet",
+            "go for a diet",
+            "go on diets"
+        ],
+        "full": "go on a diet"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "cut down on sugar",
+        "options": [
+            "cut down on sugar",
+            "cut down sugar",
+            "cut out on sugar"
+        ],
+        "full": "cut down on sugar"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "boost immunity",
+        "options": [
+            "boost immunity",
+            "boost immunities",
+            "boost the immunity"
+        ],
+        "full": "boost immunity"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "manage stress",
+        "options": [
+            "manage stress",
+            "manage stresses",
+            "handled stress"
+        ],
+        "full": "manage stress"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "sleep well",
+        "options": [
+            "sleep well",
+            "sleep good",
+            "sleeps well"
+        ],
+        "full": "sleep well"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "maintain hygiene",
+        "options": [
+            "maintain hygiene",
+            "maintain hygienic",
+            "maintain hygienes"
+        ],
+        "full": "maintain hygiene"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "visit the doctor",
+        "options": [
+            "visit the doctor",
+            "see the doctor",
+            "visit doctor"
+        ],
+        "full": "visit the doctor"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "take a break",
+        "options": [
+            "take a break",
+            "take break",
+            "have a break"
+        ],
+        "full": "take a break"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "relax their mind",
+        "options": [
+            "relax their mind",
+            "relax their minds",
+            "relax the mind"
+        ],
+        "full": "relax their mind"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "practice yoga",
+        "options": [
+            "practice yoga",
+            "practise yoga",
+            "practice yogas"
+        ],
+        "full": "practice yoga"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "join a gym",
+        "options": [
+            "join a gym",
+            "join gym",
+            "joined a gym"
+        ],
+        "full": "join a gym"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "reduce fat intake",
+        "options": [
+            "reduce fat intake",
+            "reduce fats intake",
+            "reduce intake of fat"
+        ],
+        "full": "reduce fat intake"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "increase fiber intake",
+        "options": [
+            "increase fiber intake",
+            "increase fibers intake",
+            "increase intake of fiber"
+        ],
+        "full": "increase fiber intake"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "avoid processed foods",
+        "options": [
+            "avoid processed foods",
+            "avoid process foods",
+            "avoid processed food"
+        ],
+        "full": "avoid processed foods"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "eat organic produce",
+        "options": [
+            "eat organic produce",
+            "eat organic produces",
+            "eat organic product"
+        ],
+        "full": "eat organic produce"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "keep hydrated",
+        "options": [
+            "keep hydrated",
+            "stay hydrated",
+            "keep hydrate"
+        ],
+        "full": "keep hydrated"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "practice meditation",
+        "options": [
+            "practice meditation",
+            "practise meditation",
+            "practice meditations"
+        ],
+        "full": "practice meditation"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "build muscle",
+        "options": [
+            "build muscle",
+            "build muscles",
+            "build a muscle"
+        ],
+        "full": "build muscle"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "lose body fat",
+        "options": [
+            "lose body fat",
+            "lose body fats",
+            "lose a body fat"
+        ],
+        "full": "lose body fat"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "track progress",
+        "options": [
+            "track progress",
+            "track progresses",
+            "track a progress"
+        ],
+        "full": "track progress"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "set realistic goals",
+        "options": [
+            "set realistic goals",
+            "set reality goals",
+            "set realistic goal"
+        ],
+        "full": "set realistic goals"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "follow a schedule",
+        "options": [
+            "follow a schedule",
+            "follow schedule",
+            "follow the schedule"
+        ],
+        "full": "follow a schedule"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "get enough sleep",
+        "options": [
+            "get enough sleep",
+            "get sufficient sleep",
+            "get enough sleeps"
+        ],
+        "full": "get enough sleep"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "limit screen time",
+        "options": [
+            "limit screen time",
+            "limit screens time",
+            "limit screen times"
+        ],
+        "full": "limit screen time"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "maintain posture",
+        "options": [
+            "maintain posture",
+            "maintain postures",
+            "maintain a posture"
+        ],
+        "full": "maintain posture"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "use sunscreen",
+        "options": [
+            "use sunscreen",
+            "use sunscreens",
+            "use sun screen"
+        ],
+        "full": "use sunscreen"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "wear comfortable shoes",
+        "options": [
+            "wear comfortable shoes",
+            "wear comfy shoes",
+            "wear comfortable shoe"
+        ],
+        "full": "wear comfortable shoes"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "avoid junk food",
+        "options": [
+            "avoid junk food",
+            "avoid junk foods",
+            "avoid junk-food"
+        ],
+        "full": "avoid junk food"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "shop at boutique clothes shops",
+        "options": [
+            "shop at boutique clothes shops",
+            "shop at boutique clothes shop",
+            "shop at boutiques clothes shops"
+        ],
+        "full": "shop at boutique clothes shops"
+    },
+    {
+        "sentence": "They {{blank}}.",
+        "answer": "guarantee the quality of material",
+        "options": [
+            "guarantee the quality of material",
+            "guarantee the quality of materials"
+        ],
+        "full": "guarantee the quality of material"
+    },
+    {
+        "sentence": "They {{blank}} before each workout for better performance.",
+        "answer": "warm up",
+        "options": ["warm up", "warmup", "warm down"],
+        "full": "warm up"
+      }
+      
+]

@@ -1,0 +1,182 @@
+[
+    {
+        "sentence": "To {{blank}}, you need to eat more and exercise less.",
+        "answer": "put on/gain weight",
+        "options": ["put on/gain weight", "increase weight", "grow fats", "add kilos"],
+        "full": "put on/gain weight"
+    },
+    {
+        "sentence": "Advertisements constantly {{blank}} about perfect body standards.",
+        "answer": "bombard us with media information",
+        "options": ["bombard us with media information", "bombard us by media messages", "overload media information", "fill with media bombardment"],
+        "full": "be bombarded with media information"
+    },
+    {
+        "sentence": "Many teenagers {{blank}} to achieve a slim figure.",
+        "answer": "work hard to get the ideal body shape",
+        "options": ["work hard to get the ideal body shape", "struggle for perfect body", "exercise for ideal shape", "train to obtain body goals"],
+        "full": "work hard to get the desirable/ideal body shape"
+    },
+    {
+        "sentence": "The tailor {{blank}} intricate embroidery.",
+        "answer": "decorates the clothes with",
+        "options": ["decorates the clothes with", "adds designs through", "enhances by embroidering", "uses embroidery on"],
+        "full": "decorate...with embroidery"
+    },
+    {
+        "sentence": "In ancient times, people believed phoenixes could {{blank}}.",
+        "answer": "ensure a safe and sound life",
+        "options": ["ensure a safe and sound life", "guarantee life safety", "protect from dangers", "promise secure existence"],
+        "full": "ensure a safe and sound life"
+    },
+    {
+        "sentence": "Fashion models aim to {{blank}} during events.",
+        "answer": "stand out from the crowd",
+        "options": ["stand out from the crowd", "standout in the crowd", "be unique among others", "differentiate themselves"],
+        "full": "stand out from the crowd"
+    },
+    {
+        "sentence": "Sociologists encourage people to {{blank}} promoted by advertisements.",
+        "answer": "question the shallow beauty ideals",
+        "options": ["question the shallow beauty ideals", "doubt superficial standards", "challenge beauty norms", "criticize unrealistic ideals"],
+        "full": "question the shallow beauty ideals"
+    },
+    {
+        "sentence": "A historian’s diary is {{blank}} of significant events.",
+        "answer": "a written record of all the important",
+        "options": ["a written record of all the important", "a documented list for major", "records written about key", "the writing of crucial"],
+        "full": "a written record of all the important events"
+    },
+    {
+        "sentence": "Many cultures {{blank}} tattoos as a form of rebellion.",
+        "answer": "have a very low opinion of",
+        "options": ["have a very low opinion of", "disapprove strongly of", "criticize the use of", "reject the idea of"],
+        "full": "have a very low opinion of tattoos"
+    },
+    {
+        "sentence": "Orthodontists help patients {{blank}}.",
+        "answer": "straighten their teeth with braces",
+        "options": ["straighten their teeth with braces", "correct their tooths", "align dental issues", "fix crooked tooths"],
+        "full": "straighten one's teeth with braces"
+    },
+    {
+        "sentence": "Some people undergo {{blank}} to enhance their appearance.",
+        "answer": "plastic/cosmetic surgery",
+        "options": ["plastic/cosmetic surgery", "aesthetic operations", "body modification", "appearance surgeries"],
+        "full": "plastic/cosmetic surgery"
+    },
+    {
+        "sentence": "The report suggests that beauty standards {{blank}}.",
+        "answer": "change over time",
+        "options": ["change over time", "evolve with times", "shift gradually", "vary across eras"],
+        "full": "change over time"
+    },
+    {
+        "sentence": "Traditional clothing often {{blank}} cultural values.",
+        "answer": "express/show/display social position",
+        "options": ["express/show/display social position", "demonstrate community identity", "symbolize historical roots", "reflect group traditions"],
+        "full": "express/show/display social position, group identity or values"
+    },
+    {
+        "sentence": "Many students {{blank}} to afford expensive textbooks.",
+        "answer": "cannot afford to buy",
+        "options": ["cannot afford to buy", "struggle affording", "fail to purchase", "lack money for"],
+        "full": "afford sth. / to do sth."
+    },
+    {
+        "sentence": "Puberty often leads to significant {{blank}}.",
+        "answer": "bodily changes",
+        "options": ["bodily changes", "physical transformations", "body developments", "physiological shifts"],
+        "full": "bodily changes"
+    },
+    {
+        "sentence": "Artisans take pride in their {{blank}}.",
+        "answer": "high quality of craftsmanship",
+        "options": ["high quality of craftsmanship", "superior craft skills", "excellent handmade work", "top-tier artistry"],
+        "full": "high quality of craft skills/craftsmanship"
+    },
+    {
+        "sentence": "People often {{blank}} during job interviews.",
+        "answer": "avoid making eye contact",
+        "options": ["avoid making eye contact", "refuse eye connection", "dodge direct glances", "prevent visual engagement"],
+        "full": "avoid making eye contact with..."
+    },
+    {
+        "sentence": "Shy individuals tend to {{blank}} in public.",
+        "answer": "walk with their heads down",
+        "options": ["walk with their heads down", "lower their heads while walking", "stroll head lowered", "move with downward gaze"],
+        "full": "walk with one's head down"
+    },
+    {
+        "sentence": "Bullies might {{blank}} someone’s appearance.",
+        "answer": "tease them about",
+        "options": ["tease them about", "mock their", "laugh at their", "ridicule their"],
+        "full": "tease sb. about sth."
+    },
+    {
+        "sentence": "Self-acceptance means {{blank}}.",
+        "answer": "accepting yourself as you are",
+        "options": ["accepting yourself as you are", "embracing your true self", "approving your own flaws", "acknowledging personal traits"],
+        "full": "accept yourself as you are"
+    },
+    {
+        "sentence": "Designers {{blank}} to create trendy accessories.",
+        "answer": "make stylish fashion items from old clothes",
+        "options": ["make stylish fashion items from old clothes", "craft chic items using old fabrics", "recycle garments into fashion", "upcycle discarded clothing"],
+        "full": "make stylish fashion items from old clothes"
+    },
+    {
+        "sentence": "Cultural festivals showcase {{blank}}.",
+        "answer": "people of all ages in different cultures",
+        "options": ["people of all ages in different cultures", "diverse age groups globally", "multicultural generations", "varied cultural demographics"],
+        "full": "people of all ages in different cultures"
+    },
+    {
+        "sentence": "A talent scout’s job is to {{blank}}.",
+        "answer": "spot potential stars",
+        "options": ["spot potential stars", "discover hidden talents", "identify promising individuals", "find gifted people"],
+        "full": "a talent spotter/scout"
+    },
+    {
+        "sentence": "Survival skills lectures teach how to {{blank}}.",
+        "answer": "thrive in an urban jungle",
+        "options": ["thrive in an urban jungle", "survive city challenges", "navigate metropolitan life", "handle urban crises"],
+        "full": "a talk/lecture on survival skills"
+    },
+    {
+        "sentence": "Vintage shops allow customers to {{blank}}.",
+        "answer": "browse market stalls",
+        "options": ["browse market stalls", "explore vintage collections", "search through secondhand items", "hunt for unique finds"],
+        "full": "browse market stalls"
+    },
+    {
+        "sentence": "Luxury brands {{blank}} of their materials.",
+        "answer": "guarantee the quality",
+        "options": ["guarantee the quality", "ensure high standards", "certify the excellence", "promise superior grade"],
+        "full": "guarantee the quality of material"
+    },
+    {
+        "sentence": "Traditional ceremonies are held {{blank}}.",
+        "answer": "on special occasions",
+        "options": ["on special occasions", "during unique events", "at important moments", "for ceremonial purposes"],
+        "full": "on special occasions"
+    },
+    {
+        "sentence": "The artist’s portfolio includes {{blank}}.",
+        "answer": "lively and delicate images of phoenixes",
+        "options": ["lively and delicate images of phoenixes", "vibrant phoenix illustrations", "detailed mythical bird art", "exquisite phoenix depictions"],
+        "full": "lively and delicate images of phoenixes"
+    },
+    {
+        "sentence": "No wonder she succeeded; she {{blank}}.",
+        "answer": "is skilled at networking",
+        "options": ["is skilled at networking", "excels in socializing", "masters communication", "has talent for connections"],
+        "full": "be skilled at"
+    },
+    {
+        "sentence": "The campaign aims to {{blank}} for sustainability.",
+        "answer": "launch a voting campaign",
+        "options": ["launch a voting campaign", "initiate a polling event", "start an election drive", "organize a ballot initiative"],
+        "full": "launch a voting campaign for a campus ambassador"
+    }
+]
