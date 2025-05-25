@@ -133,7 +133,9 @@
 prep-phrase-review-game/
 │
 ├── index.html       # 游戏主页面
-├── phrases.json     # 动态加载的题库文件
+├── data/
+│   ├── example.json     # 动态加载的题库文件
+│   └── phrase-sets.json # 题库配置文件
 ├── README.md        # 项目说明文档
 ├── LICENSE          # 许可证
 ├── src/             # 源代码文件夹

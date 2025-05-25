@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>题库索引 - 词组复习</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="src/styles.css">
+    <style>
+        .nav-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            padding-top: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .nav-title {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        .phrase-sets {
+            margin-top: 40px;
+            text-align: left;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .set-list {
+            display: grid;
+            gap: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        .set-card {
+            background: white;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .set-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .set-title {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .set-description {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        .set-details {
+            font-size: 12px;
+            color: #95a5a6;
+        }
+
+        .start-button {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+
+        .start-button:hover {
+            background: #2980b9;
+        }
+
+        .helper-text {
+            text-align: center;
+            color: #7f8c8d;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+
+        code {
+            background: #f1f2f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .loading {
+            text-align: center;
+            color: #7f8c8d;
+            padding: 20px;
+        }
+
+        .error {
+            text-align: center;
+            color: #e74c3c;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <a href="index.html" class="home-link" title="返回首页">
+            <i class="fas fa-home"></i>
+        </a>
+        <h1 class="nav-title">题库索引</h1>
+        
+        <div class="phrase-sets">
+            <div class="set-list" id="setList">
+                <div class="loading">正在加载题库列表...</div>
+            </div>
+        </div>
+
+        <div class="helper-text">
+            <p>高级用法：你可以通过URL参数自定义题库</p>
+            <ul style="text-align: left; max-width: 400px; margin: 20px auto;">
+                <li>使用 <code>db=文件名.json</code> 加载自定义JSON题库</li>
+                <li>使用 <code>rawdb=base64数据</code> 加载编码后的题库</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        async function loadPhraseSets() {
+            try {
+                const response = await fetch('data/phrase-sets.json');
+                if (!response.ok) {
+                    throw new Error('Failed to load phrase sets');
+                }
+                const data = await response.json();
+                return data.sets;
+            } catch (error) {
+                console.error('Error loading phrase sets:', error);
+                return null;
+            }
+        }
+
+        function createSetCard(set) {
+            return `
+                <div class="set-card">
+                    <div class="set-title">${set.name}</div>
+                    <div class="set-description">${set.description}</div>
+                    <div class="set-details">${set.details}</div>
+                    <a href="loader.html?db=${set.path}" class="start-button">开始练习</a>
+                </div>
+            `;
+        }
+
+        async function initializePhraseSets() {
+            const setListElement = document.getElementById('setList');
+            const sets = await loadPhraseSets();
+
+            if (!sets) {
+                setListElement.innerHTML = '<div class="error">加载题库列表失败</div>';
+                return;
+            }
+
+            if (sets.length === 0) {
+                setListElement.innerHTML = '<div class="error">暂无可用题库</div>';
+                return;
+            }
+
+            setListElement.innerHTML = sets.map(set => createSetCard(set)).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', initializePhraseSets);
+    </script>
+</body>
+</html>

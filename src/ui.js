@@ -7,13 +7,14 @@ class UI {
       options: document.querySelector('#options'),
       feedback: document.querySelector('#feedback'),
       nextButton: document.querySelector('#next'),
-      questionArea: document.querySelector('#question-area')
+      questionArea: document.querySelector('#question-area'),
+      completionArea: document.querySelector('#completion-area')
     };
     this.currentBlank = null;
   }
 
   updateScore(score) {
-    this.elements.score.textContent = `得分: ${score}`;
+    this.elements.score.textContent = `得分：${score}`;
   }
 
   showPhrase(phrase) {
@@ -69,26 +70,74 @@ class UI {
 
   showCorrectAnswer(word, fullPhrase) {
     if (this.currentBlank) {
-      // 填充答案到空格中
       this.currentBlank.textContent = word;
       this.currentBlank.classList.add('filled');
     }
 
-    // 显示完整词组
-    this.elements.phrase.textContent = `完整词组: ${fullPhrase}`;
+    this.elements.phrase.textContent = `完整词组：${fullPhrase}`;
     this.elements.phrase.classList.remove('hidden');
     setTimeout(() => {
       this.elements.phrase.classList.add('show');
     }, 50);
 
-    // 隐藏选项容器
     this.hideAllOptions();
   }
 
   showFeedback(isCorrect) {
-    this.elements.feedback.textContent = isCorrect ? '正确!' : '请再试一次!';
+    this.elements.feedback.textContent = isCorrect ? '正确！' : '请再试一次！';
     this.elements.feedback.style.color = isCorrect ? '#27ae60' : '#e74c3c';
     this.elements.nextButton.disabled = !isCorrect;
+  }
+
+  showError(message) {
+    this.elements.feedback.textContent = message;
+    this.elements.feedback.style.color = '#e74c3c';
+  }
+
+  showCompletion({ totalQuestions, correctFirstTime, wrongPhrases, reviewLink }) {
+    // 隐藏答题区域
+    this.elements.questionArea.style.display = 'none';
+    
+    // 隐藏反馈和下一题按钮
+    this.elements.feedback.style.display = 'none';
+    this.elements.nextButton.style.display = 'none';
+    
+    // 创建完成页面内容
+    const completionHTML = `
+      <div class="completion-content">
+        <h2>练习完成！</h2>
+        <div class="stats">
+          <p>总题数：${totalQuestions}</p>
+          <p>首次答对：${correctFirstTime}</p>
+          <p>正确率：${Math.round((correctFirstTime / totalQuestions) * 100)}%</p>
+        </div>
+        ${wrongPhrases.length > 0 ? `
+          <div class="wrong-phrases">
+            <h3>错题统计</h3>
+            <button id="review-button" class="review-button">练习错题</button>
+            <ul class="wrong-list">
+              ${wrongPhrases.map(phrase => `
+                <li>
+                  <span class="full-phrase">${phrase.full}</span>
+                  <span class="error-count">错误：${phrase.errorCount}次</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        ` : '<p class="perfect-score">恭喜你全部答对！</p>'}
+      </div>
+    `;
+
+    // 显示完成页面
+    this.elements.completionArea.innerHTML = completionHTML;
+    this.elements.completionArea.style.display = 'block';
+
+    // 绑定错题练习按钮事件
+    if (wrongPhrases.length > 0) {
+      document.querySelector('#review-button').addEventListener('click', () => {
+        window.location.href = reviewLink;
+      });
+    }
   }
 
   bindEvents(game) {

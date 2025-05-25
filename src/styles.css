@@ -2,8 +2,10 @@
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
+    padding-top: 40px;  /* 为home-link留出空间 */
     font-family: Arial, sans-serif;
     text-align: center;
+    position: relative;  /* 为绝对定位的home-link提供参考 */
 }
 
 #score {
@@ -85,6 +87,7 @@
     justify-content: center;
     gap: 10px;
     margin: 20px 0;
+    touch-action: none;  /* 禁用整个选项容器的默认触摸行为 */
 }
 
 .option {
@@ -95,7 +98,8 @@
     border-radius: 4px;
     cursor: pointer;
     user-select: none;
-    touch-action: none;
+    touch-action: none;  /* 确保在所有设备上都禁用默认触摸行为 */
+    -webkit-touch-callout: none;  /* 禁用iOS长按菜单 */
     transform: translateY(0);
     transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
 }
@@ -153,6 +157,104 @@
     }
 }
 
+/* Completion Screen Styles */
+#completion-area {
+    display: none;
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.completion-content {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.completion-content h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.stats {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.stats p {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #34495e;
+}
+
+.wrong-phrases {
+    text-align: left;
+}
+
+.wrong-phrases h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.wrong-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.wrong-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    margin-bottom: 8px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    border-left: 4px solid #e74c3c;
+}
+
+.full-phrase {
+    color: #2c3e50;
+    font-size: 16px;
+}
+
+.error-count {
+    color: #e74c3c;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.review-button {
+    display: block;
+    width: 100%;
+    margin: 0 0 20px 0;  /* 修改margin，确保按钮和列表之间有合适间距 */
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.review-button:hover {
+    background-color: #2980b9;
+}
+
+.perfect-score {
+    text-align: center;
+    color: #27ae60;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
 /* 触摸屏支持 */
 @media (hover: none) {
     .option {
@@ -180,6 +282,15 @@
         line-height: 40px;
         margin: 10px 5px;
     }
+    
+    .wrong-list li {
+        padding: 15px;
+    }
+    
+    .review-button {
+        padding: 15px;
+        font-size: 18px;
+    }
 }
 
 .original-link {
@@ -197,4 +308,28 @@
 .original-link a:hover {
     color: #2980b9;
     text-decoration: underline;
+}
+
+.home-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.home-link:hover {
+    color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }

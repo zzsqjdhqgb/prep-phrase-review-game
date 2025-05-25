@@ -1,35 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>介词词组复习游戏</title>
-    <link rel="stylesheet" href="src/styles.css">
+    <title>词组复习</title>
+    <style>
+        .nav-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .nav-title {
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .nav-button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav-button:hover {
+            background-color: #2980b9;
+        }
+
+        .nav-description {
+            margin: 40px 0;
+            color: #34495e;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 <body>
-    <div id="game-container">
-        <div id="score">Score: 0</div>
-        <div id="question-area">
-            <div id="sentence">Sentence will appear here</div>
-            <div id="phrase" class="hidden">Complete phrase will appear here</div>
+    <div class="nav-container">
+        <h1 class="nav-title">词组复习</h1>
+        <div class="nav-buttons">
+            <a href="phrases.html" class="nav-button">题库索引</a>
+            <a href="old/original.html" class="nav-button">查看原始版本</a>
         </div>
-        <div id="options">Options will appear here</div>
-        <div id="feedback"></div>
-        <button id="next">Next</button>
+        <div class="nav-description">
+            <p>这是一个帮助你复习词组的练习工具</p>
+            <p>点击"题库索引"开始练习</p>
+        </div>
     </div>
-    <div class="original-link">
-        <a href="old/original.html">查看原始版本</a>
-    </div>
-    <script src="src/ui.js"></script>
-    <script src="src/game.js"></script>
-    <script src="src/drag-and-drop.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const ui = new UI();
-            const game = new Game(ui);
-            const dragAndDrop = new DragAndDrop(ui, game);
-            game.init();
-        });
-    </script>
 </body>
 </html>

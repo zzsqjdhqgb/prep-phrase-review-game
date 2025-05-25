@@ -1,0 +1,10 @@
+{
+  "sets": [
+    {
+      "name": "功能演示",
+      "description": "使用完整题库体验所有功能",
+      "details": "包含答题反馈、错题统计等功能展示",
+      "path": "data/example.json"
+    }
+  ]
+}
